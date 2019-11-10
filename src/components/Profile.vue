@@ -12,7 +12,7 @@
                 </ul>
             </div>
             <div id="gpa">
-                <strong>{{user.gpa}}</strong>
+                <strong>{{gpa}}</strong>
             </div>
             <div class="clear-fix"></div>
         </div>
@@ -24,6 +24,7 @@
         name: "Profile",
         props: {
             user: Object,
+            gpa: Number,
             },
         data: () => {
             return {

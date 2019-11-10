@@ -2,7 +2,7 @@
     <section id="container">
         <section id="main">
             <div class="content">
-                <Profile :user="user" :class="{active: isActive === 'profile'}"></Profile>
+                <Profile :user="user" :gpa="gpa_funciton()" :class="{active: isActive === 'profile'}"></Profile>
                 <Courses :course_list="course_list" :class="{active: isActive === 'courses'}"></Courses>
             </div>
             <div class="controls">
@@ -48,10 +48,11 @@
                     this.isActive = !this.isActive;
                 }
             },
-            gpa_funciton: function (grades) {
+            gpa_funciton: function () {
+                var courses = this.course_list;
                 var total = 0;
-                for (var i = 0; i < grades.length; i++) {
-                    let grade = grades[i];
+                for (var i = 0; i < courses.length; i++) {
+                    let grade = courses[i].grade;
                     if (grade > 90) {
                         total += 4;
                     }
