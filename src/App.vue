@@ -1,7 +1,7 @@
 <template>
     <main id="app">
         <Header></Header>
-        <Main :toggle-tab="toggleTab"></Main>
+        <Main></Main>
         <Footer></Footer>
     </main>
 </template>
@@ -19,26 +19,6 @@
             Main,
             Footer
         },
-        data: () => {
-            return {
-                course: ['Some subject', 'sem', 2]
-            }
-
-        },
-        methods: {
-            toggleTab: function (event) {
-                // eslint-disable-next-line
-                // console.log(event.target.className);
-                event.target.isActive = !event.target.isActive;
-                this.isActive = !this.isActive;
-                // eslint-disable-next-line
-                console.log(event.target.isActive);
-
-                // eslint-disable-next-line
-                console.log(this.isActive);
-
-            }
-        }
     }
 </script>
 

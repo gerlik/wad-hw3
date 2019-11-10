@@ -1,5 +1,5 @@
 <template>
-    <div :class="{active:isActive}" class="tab" id="courses-container">
+    <div class="tab" id="courses-container">
         <h1 class="title">Courses</h1>
         <table id="courses">
             <thead>
@@ -55,15 +55,12 @@
 <script>
     export default {
         name: "Courses",
-        props: {
-            // isActive: Boolean
-        },
+        props: {},
         data: () => {
-            return {
-                isActive: false
-            }
+            return {}
         },
-        methods: {}
+        methods: {},
+
     }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-    <div :class="{active:isActive}" class="tab" id="profile-container">
+    <div class="tab" id="profile-container">
         <div id="profile">
             <div class="avatar">
                 <img :src="image" alt="My picture" id="picture">
@@ -22,13 +22,10 @@
 <script>
     export default {
         name: "Profile",
-        props: {
-            // isActive: Boolean
-        },
+        props: {},
         data: () => {
             return {
                 image: require('@/assets/me.png'),
-                isActive: true
             }
         },
         methods: {}
