@@ -213,8 +213,4 @@
         padding: 10px 20px;
         min-width: 135px;
     }
-
-    #add-course {
-        display: none;
-    }
 </style>

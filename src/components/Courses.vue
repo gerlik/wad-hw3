@@ -40,8 +40,8 @@
         <br>
         <br>
         <div>
-            <button class="blue-button" id="add-course-button">+</button>
-            <span id="add-course">
+            <button @click="toggle = !toggle" class="blue-button" id="add-course-button">+</button>
+            <span id="add-course" v-if="toggle">
                 <input class="input" id="title" placeholder="Course title" type="text">
                 <input class="input" id="semester" max="8" min="1" placeholder="Semester" type="number">
                 <input class="input" id="grade" max="100" min="0" placeholder="Grade" type="number">
@@ -57,7 +57,9 @@
         name: "Courses",
         props: {},
         data: () => {
-            return {}
+            return {
+                toggle: false
+            }
         },
         methods: {},
 
