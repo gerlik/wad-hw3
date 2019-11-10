@@ -42,11 +42,13 @@
         <div>
             <button @click="toggleAddCourse = !toggleAddCourse" class="blue-button" id="add-course-button">+</button>
             <span id="add-course" v-if="toggleAddCourse">
-                <input class="input" id="title" placeholder="Course title" type="text">
-                <input class="input" id="semester" max="8" min="1" placeholder="Semester" type="number">
-                <input class="input" id="grade" max="100" min="0" placeholder="Grade" type="number">
+                <input class="input" id="title" placeholder="Course title" type="text" v-model="title">
+                <input class="input" id="semester" max="8" min="1" placeholder="Semester" type="number"
+                       v-model="semester">
+                <input class="input" id="grade" max="100" min="0" placeholder="Grade" type="number"
+                       v-model="grade">
                 <button class="green-button" id="save-course">Save</button>
-                <button class="grey-button" id="cancel-course">Cancel</button>
+                <button @click="cancel" class="grey-button" id="cancel-course">Cancel</button>
             </span>
         </div>
     </div>
@@ -57,9 +59,21 @@
         name: "Courses",
         data: () => {
             return {
-                toggleAddCourse: false
+                toggleAddCourse: false,
+                title: '',
+                semester: '',
+                grade: '',
             }
+
         },
+        methods: {
+            cancel: function () {
+                this.title = '';
+                this.semester = '';
+                this.grade = '';
+                this.toggleAddCourse = false;
+            }
+        }
     }
 </script>
 
