@@ -1,6 +1,7 @@
 export default class Course {
 
-    constructor(title, semester, grade) {
+    constructor(id, title, semester, grade) {
+        this.id = id;
         this.title = title;
         this.semester = semester;
         this.grade = grade;

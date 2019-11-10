@@ -2,8 +2,8 @@
     <section id="container">
         <section id="main">
             <div class="content">
-                <Profile :class="{active: isActive === 'profile'}"></Profile>
-                <Courses :class="{active: isActive === 'courses'}"></Courses>
+                <Profile :user="user" :class="{active: isActive === 'profile'}"></Profile>
+                <Courses :course_list="course_list" :class="{active: isActive === 'courses'}"></Courses>
             </div>
             <div class="controls">
                 <button :class="{active: isActive === 'profile'}" @click="isActive = 'profile'" class="pill"
@@ -33,8 +33,45 @@
         data: () => {
             return {
                 isActive: 'profile',
+                user: Object,
+                course_list: Array,
+                }
+            },
+        props: {
+            user: Object,
+            course_list: Array,
+            },
+        methods: {
+            toggleTab: function () {
+
+                if (this.isActive !== !this.isActive) {
+                    this.isActive = !this.isActive;
+                }
+            },
+            gpa_funciton: function (grades) {
+                var total = 0;
+                for (var i = 0; i < grades.length; i++) {
+                    let grade = grades[i];
+                    if (grade > 90) {
+                        total += 4;
+                    }
+                    else if (grade > 80) {
+                        total += 3;
+                    }
+                    else if (grade > 70) {
+                        total += 2;
+                    }
+                    else if (grade > 60) {
+                        total += 1;
+                    }
+                    else if (grade > 50) {
+                        total += 0.5;
+                    }
+                }
+                return (total/i).toFixed(2)
             }
-        },
+
+        }
     }
 </script>
 

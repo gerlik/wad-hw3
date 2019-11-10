@@ -1,8 +1,7 @@
 export default class User {
 
-    constructor(firstname, lastname, birthdate, faculty, gpa) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+    constructor(name, birthdate, faculty, gpa) {
+        this.name = name
         this.birthdate = birthdate;
         this.faculty = faculty;
         this.gpa = gpa;

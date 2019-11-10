@@ -11,30 +11,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Agile software development</td>
-                <td>1</td>
-                <td>82</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>System modeling</td>
-                <td>1</td>
-                <td>85</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Object-oriented programming</td>
-                <td>2</td>
-                <td>99</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Estonian language Level A2</td>
-                <td>2</td>
-                <td>65</td>
-            </tr>
+                <tr v-for="course in course_list" :key="course.id">
+                    <td>{{course.id}}</td>
+                    <td>{{course.title}}</td>
+                    <td>{{course.semester}}</td>
+                    <td>{{course.grade}}</td>
+                </tr>
             </tbody>
         </table>
         <br>
@@ -47,7 +29,7 @@
                        v-model="semester">
                 <input class="input" id="grade" max="100" min="0" placeholder="Grade" type="number"
                        v-model="grade">
-                <button class="green-button" id="save-course">Save</button>
+                <button @click="add" class="green-button" id="save-course">Save</button>
                 <button @click="cancel" class="grey-button" id="cancel-course">Cancel</button>
             </span>
         </div>
@@ -55,14 +37,23 @@
 </template>
 
 <script>
+    //import Course from "./models/Course";
+
+    import Course from "../models/Course";
+
     export default {
         name: "Courses",
+        components: {},
+        props: {
+            course_list: Array,
+        },
         data: () => {
             return {
                 toggleAddCourse: false,
                 title: '',
                 semester: '',
                 grade: '',
+                course: Object,
             }
 
         },
@@ -72,6 +63,10 @@
                 this.semester = '';
                 this.grade = '';
                 this.toggleAddCourse = false;
+            },
+
+            add: function () {
+                this.course_list.push(new Course(this.course_list.length+1, this.title, this.semester, this.grade))
             }
         }
     }

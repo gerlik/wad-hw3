@@ -1,7 +1,7 @@
 <template>
     <main id="app">
         <Header></Header>
-        <Main></Main>
+        <Main :user="user" :course_list="course_list"></Main>
         <Footer></Footer>
     </main>
 </template>
@@ -10,6 +10,8 @@
     import Header from './components/Header.vue'
     import Main from './components/Main.vue'
     import Footer from './components/Footer.vue'
+    import User from "./models/User.js"
+    import Course from "./models/Course";
 
 
     export default {
@@ -19,6 +21,18 @@
             Main,
             Footer
         },
+        data: () => {
+            return {
+                user: new User('John Doe', '11/10/1990', 'Computer Science', 2),
+                course_list: [
+                    new Course(1, "Agile software development", 1, 82),
+                    new Course(2, "System modelling", 1, 85),
+                    new Course(3, "OOP", 2, 94),
+                    new Course(4, "Estonian Language Level A2", 2, 65)
+                ],
+            }
+        },
+        methods: {}
     }
 </script>
 
