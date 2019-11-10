@@ -2,13 +2,17 @@
     <section id="container">
         <section id="main">
             <div class="content">
-                <Profile :class="{'active': isActive}"></Profile>
-                <Courses :class="{'active': !isActive}"></Courses>
+                <Profile :class="{active: isActive === 'profile'}"></Profile>
+                <Courses :class="{active: isActive === 'courses'}"></Courses>
             </div>
             <div class="controls">
-                <button :class="{'active':isActive}" @click="toggleTab" class="pill" id="profile-button">Profile
+                <button :class="{active: isActive === 'profile'}" @click="isActive = 'profile'" class="pill"
+                        id="profile-button">
+                    Profile
                 </button>
-                <button :class="{'active':!isActive}" @click="toggleTab" class="pill" id="courses-button">Courses
+                <button :class="{active: isActive === 'courses'}" @click="isActive = 'courses'" class="pill"
+                        id="courses-button">
+                    Courses
                 </button>
             </div>
         </section>
@@ -28,19 +32,9 @@
         },
         data: () => {
             return {
-                isActive: true,
+                isActive: 'profile',
             }
         },
-        props: {},
-        methods: {
-            toggleTab: function () {
-
-                if (this.isActive !== !this.isActive) {
-                    this.isActive = !this.isActive;
-                }
-            }
-
-        }
     }
 </script>
 

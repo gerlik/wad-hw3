@@ -22,13 +22,11 @@
 <script>
     export default {
         name: "Profile",
-        props: {},
         data: () => {
             return {
                 image: require('@/assets/me.png'),
             }
         },
-        methods: {}
     }
 </script>
 

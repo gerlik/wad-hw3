@@ -40,8 +40,8 @@
         <br>
         <br>
         <div>
-            <button @click="toggle = !toggle" class="blue-button" id="add-course-button">+</button>
-            <span id="add-course" v-if="toggle">
+            <button @click="toggleAddCourse = !toggleAddCourse" class="blue-button" id="add-course-button">+</button>
+            <span id="add-course" v-if="toggleAddCourse">
                 <input class="input" id="title" placeholder="Course title" type="text">
                 <input class="input" id="semester" max="8" min="1" placeholder="Semester" type="number">
                 <input class="input" id="grade" max="100" min="0" placeholder="Grade" type="number">
@@ -55,14 +55,11 @@
 <script>
     export default {
         name: "Courses",
-        props: {},
         data: () => {
             return {
-                toggle: false
+                toggleAddCourse: false
             }
         },
-        methods: {},
-
     }
 </script>
 
