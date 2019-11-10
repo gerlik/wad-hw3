@@ -66,7 +66,8 @@
             },
 
             add: function () {
-                this.course_list.push(new Course(this.course_list.length+1, this.title, this.semester, this.grade))
+                this.course_list.push(new Course(this.course_list.length+1, this.title, this.semester, this.grade));
+                this.cancel()
             }
         }
     }
