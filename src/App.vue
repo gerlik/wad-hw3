@@ -23,7 +23,7 @@
         },
         data: () => {
             return {
-                user: new User('John Doe', '11/10/1990', 'Computer Science', 2),
+                user: new User('John', 'Doe', '11/10/1990', 'Computer Science', 2),
                 course_list: [
                     new Course(1, "Agile software development", 1, 82),
                     new Course(2, "System modelling", 1, 85),
@@ -32,7 +32,6 @@
                 ],
             }
         },
-        methods: {}
     }
 </script>
 

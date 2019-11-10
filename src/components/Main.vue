@@ -33,21 +33,13 @@
         data: () => {
             return {
                 isActive: 'profile',
-                user: Object,
-                course_list: Array,
-                }
-            },
+            }
+        },
         props: {
             user: Object,
             course_list: Array,
-            },
+        },
         methods: {
-            toggleTab: function () {
-
-                if (this.isActive !== !this.isActive) {
-                    this.isActive = !this.isActive;
-                }
-            },
             gpa_funciton: function () {
                 var courses = this.course_list;
                 var total = 0;
@@ -55,23 +47,18 @@
                     let grade = courses[i].grade;
                     if (grade > 90) {
                         total += 4;
-                    }
-                    else if (grade > 80) {
+                    } else if (grade > 80) {
                         total += 3;
-                    }
-                    else if (grade > 70) {
+                    } else if (grade > 70) {
                         total += 2;
-                    }
-                    else if (grade > 60) {
+                    } else if (grade > 60) {
                         total += 1;
-                    }
-                    else if (grade > 50) {
+                    } else if (grade > 50) {
                         total += 0.5;
                     }
                 }
-                return (total/i).toFixed(2)
+                return Number((total / i).toFixed(2))
             }
-
         }
     }
 </script>

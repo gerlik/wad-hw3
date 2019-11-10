@@ -11,12 +11,12 @@
             </tr>
             </thead>
             <tbody>
-                <tr v-for="course in course_list" :key="course.id">
-                    <td>{{course.id}}</td>
-                    <td>{{course.title}}</td>
-                    <td>{{course.semester}}</td>
-                    <td>{{course.grade}}</td>
-                </tr>
+            <tr :key="course.id" v-for="course in course_list">
+                <td>{{course.id}}</td>
+                <td>{{course.title}}</td>
+                <td>{{course.semester}}</td>
+                <td>{{course.grade}}</td>
+            </tr>
             </tbody>
         </table>
         <br>
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-    //import Course from "./models/Course";
 
     import Course from "../models/Course";
 
@@ -66,7 +65,7 @@
             },
 
             add: function () {
-                this.course_list.push(new Course(this.course_list.length+1, this.title, this.semester, this.grade));
+                this.course_list.push(new Course(this.course_list.length + 1, this.title, this.semester, this.grade));
                 this.cancel()
             }
         }

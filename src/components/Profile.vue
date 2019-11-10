@@ -6,7 +6,7 @@
             </div>
             <div class="info">
                 <ul>
-                    <li id="name">{{user.name}}</li>
+                    <li id="name">{{user.firstname + ' ' + user.lastname}}</li>
                     <li id="birthdate">{{user.birthdate}}</li>
                     <li id="faculty">{{user.faculty}}</li>
                 </ul>
@@ -25,13 +25,12 @@
         props: {
             user: Object,
             gpa: Number,
-            },
+        },
         data: () => {
             return {
                 image: require('@/assets/me.png'),
             }
         },
-        methods: {}
     }
 </script>
 
